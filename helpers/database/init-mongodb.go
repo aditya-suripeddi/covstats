@@ -2,8 +2,7 @@ package database
 
 import (
 	"time"
-
-	mgo "gopkg.in/mgo.v2"
+	 mgo "gopkg.in/mgo.v2"
 )
 
 // GetMongoDB is a function that will return MongoDB instance

@@ -3,9 +3,10 @@ package middleware
 import (
 	"fmt"
 	"net/http"
-    "covstats/helpers/wrapper"
-	"github.com/labstack/echo/v4"
 
+    "github.com/aditya-suripeddi/covstats/helpers/wrapper"
+	
+	"github.com/labstack/echo/v4"
 )
 
 // AppMiddleware is package that contains function for filtering request

@@ -1,6 +1,6 @@
 package repository
 
-import "covstats/model"
+import "github.com/aditya-suripeddi/covstats/model"
 
 // RegionInfoRepository interface is a list of methods of RegionInfo model
 type RegionInfoRepository interface {

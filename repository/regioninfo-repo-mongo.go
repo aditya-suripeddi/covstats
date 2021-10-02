@@ -3,7 +3,7 @@ package repository
 import (
 	"time"
 
-	"covstats/model"
+	"github.com/aditya-suripeddi/covstats/model"
 
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
@@ -42,7 +42,7 @@ func (r *RegionInfoRepositoryMongo) Delete(rno string) error {
 	return err
 }
 
-// FindByID is a function to get one user by ID
+// FindByRegion is a function to get one user by ID
 func (r *RegionInfoRepositoryMongo) FindByRegion(rname string) (*model.RegionInfo, error) {
 	var regionInfo model.RegionInfo
 	err := r.db.C(r.collection).Find(bson.M{"region_name": rname}).One(&regionInfo)

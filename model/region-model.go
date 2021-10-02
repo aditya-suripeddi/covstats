@@ -19,7 +19,7 @@ type RegionInfo struct {
 
 type Region []RegionInfo
 
-func AsRegion(s StateInfo) RegionInfo {
+func AsRegion(s StateInfo, now time.Time) RegionInfo {
 
 	r := RegionInfo{}
 	r.Rno = s.Sno
@@ -33,7 +33,7 @@ func AsRegion(s StateInfo) RegionInfo {
 	r.NewPositive = s.NewPositive
 	r.NewCured = s.NewCured
 	r.RegionCode = s.StateCode
-	r.UpdatedAt = time.Now()
+	r.UpdatedAt = now
 
 	return r
 }

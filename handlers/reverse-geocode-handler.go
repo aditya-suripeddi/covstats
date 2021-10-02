@@ -1,12 +1,14 @@
 package handlers
 
 import (
-	"covstats/helpers/wrapper"
-	"covstats/repository"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
+
+	"github.com/aditya-suripeddi/covstats/helpers/wrapper"
+	"github.com/aditya-suripeddi/covstats/model"
+	"github.com/aditya-suripeddi/covstats/repository"
 
 	"github.com/labstack/echo/v4"
 	"github.com/tidwall/gjson"
@@ -25,7 +27,7 @@ func NewReverseGeocodeHandler(e *echo.Echo, repo repository.RegionInfoRepository
 	e.GET("/lat/:lat/lon/:lon", rghandler.GetState)
 }
 
-// GetState - handler method for binding JSON body and scraping for statewise covid data
+// handler to get state from lat, lon and send covstats in that state and India
 func (rghandler *ReverseGeocodeHandler) GetState(c echo.Context) error {
 
 	//https://stackoverflow.com/questions/38673673/access-http-response-as-string-in-go
@@ -62,13 +64,24 @@ func (rghandler *ReverseGeocodeHandler) GetState(c echo.Context) error {
 	message := "Reverse geocoding done with https://locationiq.com/"
 
 	log.Println(state)
+
+	var covstats model.Region
+
 	regionInfo, err := rghandler.regionInfoRepo.FindByRegion(state.String())
 	
-
 	if err != nil {
 		log.Fatal(err)
 		return wrapper.Error(http.StatusInternalServerError, erro.Error(), c)
 	}
-
-	return wrapper.Data(http.StatusOK, regionInfo, message, c)
+	
+	nationInfo, erro := rghandler.regionInfoRepo.FindByRegion("India")
+	
+	if erro != nil {
+		log.Fatal(err)
+		return wrapper.Error(http.StatusInternalServerError, erro.Error(), c)
+	}
+	
+	covstats = append(covstats, *regionInfo, *nationInfo)
+	
+	return wrapper.Data(http.StatusOK, covstats, message, c)
 }

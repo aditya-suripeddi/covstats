@@ -1,17 +1,20 @@
 package handlers
 
 import (
-	"covstats/helpers/wrapper"
-	"covstats/model"
-	"covstats/repository"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"time"
+
+	"github.com/aditya-suripeddi/covstats/helpers/wrapper"
+	"github.com/aditya-suripeddi/covstats/model"
+	"github.com/aditya-suripeddi/covstats/repository"
 
 	"github.com/labstack/echo/v4"
 )
+
 
 type CovidStatsHandler struct {
 	regionInfoRepo repository.RegionInfoRepository
@@ -56,7 +59,9 @@ func (cshandler *CovidStatsHandler) CovidStats(c echo.Context) error {
 	}
 
 	json.Unmarshal([]byte(bodyBytes), &state_data)
+	now := time.Now()
 
+	
 	// As per mohfw data set  { "sname" : "" } respresents covid stats of India
 	for _, value := range state_data {
 		if value.Sname == "" {
@@ -65,7 +70,7 @@ func (cshandler *CovidStatsHandler) CovidStats(c echo.Context) error {
 			value.StateCode = "-1"
 		}
 
-		region_info := model.AsRegion(value)
+		region_info := model.AsRegion(value, now)
 		region_data = append(region_data, region_info)
 		err := cshandler.regionInfoRepo.Save(&region_info)
 
