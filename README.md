@@ -10,7 +10,7 @@ State. Built with Golang, Echo framework and MongoDB
 
  1. Install golang, mongodb and postman. Run mongodb  
 
-    You can comment middleware portion of code in server.go after this step, 
+    You can comment middleware portion of code in server.go after this step
     to skip using postman and using browser to make the API calls
 
  2. Go to root directory of project and fill `config/config.json`
@@ -24,7 +24,7 @@ State. Built with Golang, Echo framework and MongoDB
 
 ## Application
 
->The request header should contain:
+>The request header should contain ( middleware part of code in server.go should not be commented for this):
 ```Content-Type: "application/json"```
 >The error response should be:
 
