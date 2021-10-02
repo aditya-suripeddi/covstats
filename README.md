@@ -17,9 +17,9 @@ State. Built with Golang, Echo framework and MongoDB
 
  3. Run `/path/to/covstats$ go mod tidy`
  
- 4. Run `/path/to/covstats$ go run "c:\Users\surip\Desktop\covstats\server.go` to start the server
+ 4. Run `/path/to/covstats$ go run "path\to\covstats\server.go"` to start the server
  
- 3. Import postman collection and make calls to server for response.
+ 3. Import covstats.postman_collection.json in postman and make calls to server for response.
 
 
 ## Application

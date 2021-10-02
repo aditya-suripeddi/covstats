@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "65ec9598-42da-4caf-8462-7f940f4d09d5",
+		"name": "covstats",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fetch and persist covid stats in mongodb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"ticker\" : \"AMZN\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:1323/states",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"states"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Fetch and persist covid stats in mongodb",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"ticker\" : \"AMZN\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:1323/states",
+							"host": [
+								"localhost"
+							],
+							"port": "1323",
+							"path": [
+								"states"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 02 Oct 2021 17:32:24 GMT"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"data\": [\n        {\n            \"rno\": \"2\",\n            \"region_name\": \"Andaman and Nicobar Islands\",\n            \"active\": \"9\",\n            \"positive\": \"7621\",\n            \"cured\": \"7483\",\n            \"death\": \"129\",\n            \"new_active\": \"8\",\n            \"new_positive\": \"7621\",\n            \"new_cured\": \"7484\",\n            \"new_death\": \"129\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"35\"\n        },\n        {\n            \"rno\": \"1\",\n            \"region_name\": \"Andhra Pradesh\",\n            \"active\": \"11503\",\n            \"positive\": \"2050324\",\n            \"cured\": \"2024645\",\n            \"death\": \"14176\",\n            \"new_active\": \"11142\",\n            \"new_positive\": \"2051133\",\n            \"new_cured\": \"2025805\",\n            \"new_death\": \"14186\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"28\"\n        },\n        {\n            \"rno\": \"3\",\n            \"region_name\": \"Arunachal Pradesh\",\n            \"active\": \"419\",\n            \"positive\": \"54626\",\n            \"cured\": \"53931\",\n            \"death\": \"276\",\n            \"new_active\": \"429\",\n            \"new_positive\": \"54680\",\n            \"new_cured\": \"53974\",\n            \"new_death\": \"277\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"12\"\n        },\n        {\n            \"rno\": \"4\",\n            \"region_name\": \"Assam\",\n            \"active\": \"4404\",\n            \"positive\": \"602163\",\n            \"cured\": \"591886\",\n            \"death\": \"5873\",\n            \"new_active\": \"4348\",\n            \"new_positive\": \"602466\",\n            \"new_cured\": \"592242\",\n            \"new_death\": \"5876\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"18\"\n        },\n        {\n            \"rno\": \"5\",\n            \"region_name\": \"Bihar\",\n            \"active\": \"54\",\n            \"positive\": \"725958\",\n            \"cured\": \"716243\",\n            \"death\": \"9661\",\n            \"new_active\": \"42\",\n            \"new_positive\": \"725961\",\n            \"new_cured\": \"716258\",\n            \"new_death\": \"9661\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"10\"\n        },\n        {\n            \"rno\": \"6\",\n            \"region_name\": \"Chandigarh\",\n            \"active\": \"41\",\n            \"positive\": \"65230\",\n            \"cured\": \"64370\",\n            \"death\": \"819\",\n            \"new_active\": \"36\",\n            \"new_positive\": \"65232\",\n            \"new_cured\": \"64377\",\n            \"new_death\": \"819\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"04\"\n        },\n        {\n            \"rno\": \"7\",\n            \"region_name\": \"Chhattisgarh\",\n            \"active\": \"300\",\n            \"positive\": \"1005357\",\n            \"cured\": \"991491\",\n            \"death\": \"13566\",\n            \"new_active\": \"277\",\n            \"new_positive\": \"1005379\",\n            \"new_cured\": \"991536\",\n            \"new_death\": \"13566\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"22\"\n        },\n        {\n            \"rno\": \"8\",\n            \"region_name\": \"Dadra and Nagar Haveli and Daman and Diu\",\n            \"active\": \"0\",\n            \"positive\": \"10670\",\n            \"cured\": \"10666\",\n            \"death\": \"4\",\n            \"new_active\": \"0\",\n            \"new_positive\": \"10670\",\n            \"new_cured\": \"10666\",\n            \"new_death\": \"4\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"26\"\n        },\n        {\n            \"rno\": \"10\",\n            \"region_name\": \"Delhi\",\n            \"active\": \"400\",\n            \"positive\": \"1438868\",\n            \"cured\": \"1413381\",\n            \"death\": \"25087\",\n            \"new_active\": \"409\",\n            \"new_positive\": \"1438900\",\n            \"new_cured\": \"1413404\",\n            \"new_death\": \"25087\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"07\"\n        },\n        {\n            \"rno\": \"11\",\n            \"region_name\": \"Goa\",\n            \"active\": \"856\",\n            \"positive\": \"176431\",\n            \"cured\": \"172261\",\n            \"death\": \"3314\",\n            \"new_active\": \"838\",\n            \"new_positive\": \"176515\",\n            \"new_cured\": \"172360\",\n            \"new_death\": \"3317\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"30\"\n        },\n        {\n            \"rno\": \"12\",\n            \"region_name\": \"Gujarat\",\n            \"active\": \"158\",\n            \"positive\": \"825936\",\n            \"cured\": \"815696\",\n            \"death\": \"10082\",\n            \"new_active\": \"158\",\n            \"new_positive\": \"825952\",\n            \"new_cured\": \"815712\",\n            \"new_death\": \"10082\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"24\"\n        },\n        {\n            \"rno\": \"13\",\n            \"region_name\": \"Haryana\",\n            \"active\": \"272\",\n            \"positive\": \"770872\",\n            \"cured\": \"760726\",\n            \"death\": \"9874\",\n            \"new_active\": \"278\",\n            \"new_positive\": \"770890\",\n            \"new_cured\": \"760738\",\n            \"new_death\": \"9874\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"06\"\n        },\n        {\n            \"rno\": \"14\",\n            \"region_name\": \"Himachal Pradesh\",\n            \"active\": \"1695\",\n            \"positive\": \"219061\",\n            \"cured\": \"213690\",\n            \"death\": \"3676\",\n            \"new_active\": \"1694\",\n            \"new_positive\": \"219244\",\n            \"new_cured\": \"213871\",\n            \"new_death\": \"3679\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"02\"\n        },\n        {\n            \"rno\": \"15\",\n            \"region_name\": \"Jammu and Kashmir\",\n            \"active\": \"1345\",\n            \"positive\": \"329430\",\n            \"cured\": \"323663\",\n            \"death\": \"4422\",\n            \"new_active\": \"1339\",\n            \"new_positive\": \"329563\",\n            \"new_cured\": \"323801\",\n            \"new_death\": \"4423\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"01\"\n        },\n        {\n            \"rno\": \"16\",\n            \"region_name\": \"Jharkhand\",\n            \"active\": \"83\",\n            \"positive\": \"348226\",\n            \"cured\": \"343008\",\n            \"death\": \"5135\",\n            \"new_active\": \"87\",\n            \"new_positive\": \"348238\",\n            \"new_cured\": \"343016\",\n            \"new_death\": \"5135\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"20\"\n        },\n        {\n            \"rno\": \"17\",\n            \"region_name\": \"Karnataka\",\n            \"active\": \"12809\",\n            \"positive\": \"2976000\",\n            \"cured\": \"2925397\",\n            \"death\": \"37794\",\n            \"new_active\": \"12498\",\n            \"new_positive\": \"2976589\",\n            \"new_cured\": \"2926284\",\n            \"new_death\": \"37807\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"29\"\n        },\n        {\n            \"rno\": \"18\",\n            \"region_name\": \"Kerala\",\n            \"active\": \"143109\",\n            \"positive\": \"4680858\",\n            \"cured\": \"4512662\",\n            \"death\": \"25087\",\n            \"new_active\": \"143081\",\n            \"new_positive\": \"4694692\",\n            \"new_cured\": \"4526429\",\n            \"new_death\": \"25182\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"32\"\n        },\n        {\n            \"rno\": \"19\",\n            \"region_name\": \"Ladakh\",\n            \"active\": \"68\",\n            \"positive\": \"20803\",\n            \"cured\": \"20528\",\n            \"death\": \"207\",\n            \"new_active\": \"68\",\n            \"new_positive\": \"20809\",\n            \"new_cured\": \"20534\",\n            \"new_death\": \"207\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"37\"\n        },\n        {\n            \"rno\": \"20\",\n            \"region_name\": \"Lakshadweep\",\n            \"active\": \"2\",\n            \"positive\": \"10361\",\n            \"cured\": \"10308\",\n            \"death\": \"51\",\n            \"new_active\": \"0\",\n            \"new_positive\": \"10361\",\n            \"new_cured\": \"10310\",\n            \"new_death\": \"51\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"31\"\n        },\n        {\n            \"rno\": \"21\",\n            \"region_name\": \"Madhya Pradesh\",\n            \"active\": \"122\",\n            \"positive\": \"792531\",\n            \"cured\": \"781887\",\n            \"death\": \"10522\",\n            \"new_active\": \"124\",\n            \"new_positive\": \"792542\",\n            \"new_cured\": \"781896\",\n            \"new_death\": \"10522\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"23\"\n        },\n        {\n            \"rno\": \"22\",\n            \"region_name\": \"Maharashtra\",\n            \"active\": \"40061\",\n            \"positive\": \"6550856\",\n            \"cured\": \"6371728\",\n            \"death\": \"139067\",\n            \"new_active\": \"39952\",\n            \"new_positive\": \"6553961\",\n            \"new_cured\": \"6374892\",\n            \"new_death\": \"139117\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"27\"\n        },\n        {\n            \"rno\": \"23\",\n            \"region_name\": \"Manipur\",\n            \"active\": \"2263\",\n            \"positive\": \"120584\",\n            \"cured\": \"116466\",\n            \"death\": \"1855\",\n            \"new_active\": \"2232\",\n            \"new_positive\": \"120743\",\n            \"new_cured\": \"116653\",\n            \"new_death\": \"1858\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"14\"\n        },\n        {\n            \"rno\": \"24\",\n            \"region_name\": \"Meghalaya\",\n            \"active\": \"1619\",\n            \"positive\": \"81290\",\n            \"cured\": \"78267\",\n            \"death\": \"1404\",\n            \"new_active\": \"1666\",\n            \"new_positive\": \"81445\",\n            \"new_cured\": \"78375\",\n            \"new_death\": \"1404\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"17\"\n        },\n        {\n            \"rno\": \"25\",\n            \"region_name\": \"Mizoram\",\n            \"active\": \"16416\",\n            \"positive\": \"94830\",\n            \"cured\": \"78104\",\n            \"death\": \"310\",\n            \"new_active\": \"16361\",\n            \"new_positive\": \"96456\",\n            \"new_cured\": \"79781\",\n            \"new_death\": \"314\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"15\"\n        },\n        {\n            \"rno\": \"26\",\n            \"region_name\": \"Nagaland\",\n            \"active\": \"358\",\n            \"positive\": \"31244\",\n            \"cured\": \"30221\",\n            \"death\": \"665\",\n            \"new_active\": \"347\",\n            \"new_positive\": \"31265\",\n            \"new_cured\": \"30252\",\n            \"new_death\": \"666\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"13\"\n        },\n        {\n            \"rno\": \"27\",\n            \"region_name\": \"Odisha\",\n            \"active\": \"5136\",\n            \"positive\": \"1026476\",\n            \"cured\": \"1013142\",\n            \"death\": \"8198\",\n            \"new_active\": \"4918\",\n            \"new_positive\": \"1026953\",\n            \"new_cured\": \"1013833\",\n            \"new_death\": \"8202\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"21\"\n        },\n        {\n            \"rno\": \"28\",\n            \"region_name\": \"Puducherry\",\n            \"active\": \"830\",\n            \"positive\": \"126367\",\n            \"cured\": \"123697\",\n            \"death\": \"1840\",\n            \"new_active\": \"791\",\n            \"new_positive\": \"126431\",\n            \"new_cured\": \"123800\",\n            \"new_death\": \"1840\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"34\"\n        },\n        {\n            \"rno\": \"29\",\n            \"region_name\": \"Punjab\",\n            \"active\": \"287\",\n            \"positive\": \"601635\",\n            \"cured\": \"584832\",\n            \"death\": \"16516\",\n            \"new_active\": \"279\",\n            \"new_positive\": \"601662\",\n            \"new_cured\": \"584865\",\n            \"new_death\": \"16518\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"03\"\n        },\n        {\n            \"rno\": \"30\",\n            \"region_name\": \"Rajasthan\",\n            \"active\": \"77\",\n            \"positive\": \"954327\",\n            \"cured\": \"945296\",\n            \"death\": \"8954\",\n            \"new_active\": \"73\",\n            \"new_positive\": \"954331\",\n            \"new_cured\": \"945304\",\n            \"new_death\": \"8954\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"08\"\n        },\n        {\n            \"rno\": \"31\",\n            \"region_name\": \"Sikkim\",\n            \"active\": \"611\",\n            \"positive\": \"31451\",\n            \"cured\": \"30453\",\n            \"death\": \"387\",\n            \"new_active\": \"618\",\n            \"new_positive\": \"31482\",\n            \"new_cured\": \"30477\",\n            \"new_death\": \"387\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"11\"\n        },\n        {\n            \"rno\": \"32\",\n            \"region_name\": \"Tamil Nadu\",\n            \"active\": \"17150\",\n            \"positive\": \"2663789\",\n            \"cured\": \"2611061\",\n            \"death\": \"35578\",\n            \"new_active\": \"17099\",\n            \"new_positive\": \"2665386\",\n            \"new_cured\": \"2612684\",\n            \"new_death\": \"35603\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"33\"\n        },\n        {\n            \"rno\": \"34\",\n            \"region_name\": \"Telangana\",\n            \"active\": \"4624\",\n            \"positive\": \"665963\",\n            \"cured\": \"657421\",\n            \"death\": \"3918\",\n            \"new_active\": \"4599\",\n            \"new_positive\": \"666183\",\n            \"new_cured\": \"657665\",\n            \"new_death\": \"3919\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"36\"\n        },\n        {\n            \"rno\": \"33\",\n            \"region_name\": \"Tripura\",\n            \"active\": \"239\",\n            \"positive\": \"84148\",\n            \"cured\": \"83096\",\n            \"death\": \"813\",\n            \"new_active\": \"206\",\n            \"new_positive\": \"84163\",\n            \"new_cured\": \"83143\",\n            \"new_death\": \"814\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"16\"\n        },\n        {\n            \"rno\": \"35\",\n            \"region_name\": \"Uttarakhand\",\n            \"active\": \"167\",\n            \"positive\": \"343537\",\n            \"cured\": \"335976\",\n            \"death\": \"7394\",\n            \"new_active\": \"162\",\n            \"new_positive\": \"343550\",\n            \"new_cured\": \"335993\",\n            \"new_death\": \"7395\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"05\"\n        },\n        {\n            \"rno\": \"36\",\n            \"region_name\": \"Uttar Pradesh\",\n            \"active\": \"167\",\n            \"positive\": \"1709814\",\n            \"cured\": \"1686755\",\n            \"death\": \"22892\",\n            \"new_active\": \"159\",\n            \"new_positive\": \"1709835\",\n            \"new_cured\": \"1686784\",\n            \"new_death\": \"22892\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"09\"\n        },\n        {\n            \"rno\": \"37\",\n            \"region_name\": \"West Bengal\",\n            \"active\": \"7570\",\n            \"positive\": \"1569070\",\n            \"cured\": \"1542707\",\n            \"death\": \"18793\",\n            \"new_active\": \"7571\",\n            \"new_positive\": \"1569778\",\n            \"new_cured\": \"1543401\",\n            \"new_death\": \"18806\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"19\"\n        },\n        {\n            \"rno\": \"-1\",\n            \"region_name\": \"India\",\n            \"active\": \"275224\",\n            \"positive\": \"33766707\",\n            \"cured\": \"33043144\",\n            \"death\": \"448339\",\n            \"new_active\": \"273889\",\n            \"new_positive\": \"33791061\",\n            \"new_cured\": \"33068599\",\n            \"new_death\": \"448573\",\n            \"updated_at\": \"2021-10-02T23:02:24.0789299+05:30\",\n            \"region_code\": \"-1\"\n        }\n    ],\n    \"message\": \"Data Source mohfw.gov.in \",\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Reverse geocode and get covid stats of  region",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:1323/lat/16.3/lon/80.4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"lat",
+						"16.3",
+						"lon",
+						"80.4"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reverse geocode and get covid stats of  region",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:1323/lat/16.3/lon/80.4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1323",
+							"path": [
+								"lat",
+								"16.3",
+								"lon",
+								"80.4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 02 Oct 2021 17:34:29 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "635"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"data\": [\n        {\n            \"rno\": \"1\",\n            \"region_name\": \"Andhra Pradesh\",\n            \"active\": \"11503\",\n            \"positive\": \"2050324\",\n            \"cured\": \"2024645\",\n            \"death\": \"14176\",\n            \"new_active\": \"11142\",\n            \"new_positive\": \"2051133\",\n            \"new_cured\": \"2025805\",\n            \"new_death\": \"14186\",\n            \"updated_at\": \"2021-10-02T23:02:24.078+05:30\",\n            \"region_code\": \"28\"\n        },\n        {\n            \"rno\": \"-1\",\n            \"region_name\": \"India\",\n            \"active\": \"275224\",\n            \"positive\": \"33766707\",\n            \"cured\": \"33043144\",\n            \"death\": \"448339\",\n            \"new_active\": \"273889\",\n            \"new_positive\": \"33791061\",\n            \"new_cured\": \"33068599\",\n            \"new_death\": \"448573\",\n            \"updated_at\": \"2021-10-02T23:02:24.078+05:30\",\n            \"region_code\": \"-1\"\n        }\n    ],\n    \"message\": \"Reverse geocoding done with https://locationiq.com/\",\n    \"success\": true\n}"
+				}
+			]
+		}
+	]
+}

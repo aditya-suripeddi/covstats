@@ -1,24 +1,24 @@
 package main
 
-
-
 import (
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 
 	"github.com/aditya-suripeddi/covstats/handlers"
 	"github.com/aditya-suripeddi/covstats/repository"
 
-	 db "github.com/aditya-suripeddi/covstats/helpers/database"
-	 //mdl "github.com/aditya-suripeddi/covstats/middleware"
+	db "github.com/aditya-suripeddi/covstats/helpers/database"
+	"github.com/aditya-suripeddi/covstats/helpers/wrapper"
+
+	//mdl "github.com/aditya-suripeddi/covstats/middleware"
 
 	"github.com/labstack/echo/v4"
 	"github.com/spf13/viper"
 )
 
-
-// read configs 
+// read configs
 func init() {
 	viper.SetConfigFile(`./config/config.json`)
 	err := viper.ReadInConfig()
@@ -29,8 +29,8 @@ func init() {
 
 func main() {
 
-   // read mongodb credentials from config.json	
-   var mongoCredential = map[string]string{
+	// read mongodb credentials from config.json
+	var mongoCredential = map[string]string{
 		"host":     viper.GetString(`database.mongodb.host`),
 		"user":     viper.GetString(`database.mongodb.user`),
 		"password": viper.GetString(`database.mongodb.password`),
@@ -39,12 +39,12 @@ func main() {
 
 	// read appName, it is also the collection name in mongodb
 	appName := viper.GetString(`app.name`)
-	
+
 	// read server host and port
 	appHost := viper.GetString(`app.domain`)
 	appPort := viper.GetString(`app.port`)
 
-	// setup mongodb connection 
+	// setup mongodb connection
 	mongodb, err := db.GetMongoDB(mongoCredential)
 
 	if err != nil {
@@ -65,7 +65,11 @@ func main() {
 	handlers.NewCovidStatsHandler(e, urMongo)
 	handlers.NewReverseGeocodeHandler(e, urMongo)
 
-	// start the server 
+	e.GET("/", func(c echo.Context) error {
+		return wrapper.Data(http.StatusOK, "Server is up and running", "Server has started", c)
+	})
+
+	// start the server
 	e.Start(fmt.Sprintf(`%s:%s`, appHost, appPort))
 
 }
