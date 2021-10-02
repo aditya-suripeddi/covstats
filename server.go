@@ -3,19 +3,18 @@ package main
 import (
 	"fmt"
 	"log"
-	"net/http"
 	"os"
 
 	"github.com/aditya-suripeddi/covstats/handlers"
 	"github.com/aditya-suripeddi/covstats/repository"
 
 	db "github.com/aditya-suripeddi/covstats/helpers/database"
-	"github.com/aditya-suripeddi/covstats/helpers/wrapper"
-
 	//mdl "github.com/aditya-suripeddi/covstats/middleware"
+	_ "github.com/aditya-suripeddi/covstats/docs/swagdocs"
 
 	"github.com/labstack/echo/v4"
 	"github.com/spf13/viper"
+	 echoSwagger "github.com/swaggo/echo-swagger"
 )
 
 // read configs
@@ -26,6 +25,22 @@ func init() {
 		panic(err)
 	}
 }
+
+// @title Covstats Swagger API
+// @version 1.0
+// @description Covid Stats for your region
+// @termsOfService http://swagger.io/terms/
+
+// @contact.name API Support
+// @contact.url http://www.swagger.io/support
+// @contact.email support@swagger.io
+
+// @license.name Apache 2.0
+// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
+
+// @host localhost:1323
+// @BasePath /
+// @schemes http
 
 func main() {
 
@@ -65,9 +80,10 @@ func main() {
 	handlers.NewCovidStatsHandler(e, urMongo)
 	handlers.NewReverseGeocodeHandler(e, urMongo)
 
-	e.GET("/", func(c echo.Context) error {
-		return wrapper.Data(http.StatusOK, "Server is up and running", "Server has started", c)
-	})
+
+	e.GET("/", handlers.ServerStatus)
+
+	e.GET("/swagger/*", echoSwagger.WrapHandler)
 
 	// start the server
 	e.Start(fmt.Sprintf(`%s:%s`, appHost, appPort))

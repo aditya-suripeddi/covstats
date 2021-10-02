@@ -27,7 +27,15 @@ func NewReverseGeocodeHandler(e *echo.Echo, repo repository.RegionInfoRepository
 	e.GET("/lat/:lat/lon/:lon", rghandler.GetState)
 }
 
-// handler to get state from lat, lon and send covstats in that state and India
+// @Summary Get state from lat, lon and send covstats in that state and India
+// @Tags root
+// @Accept application/json
+// @Produce json
+// @Param lat path string true "latitude"
+// @Param lon path string true "longitude"
+// @Success 200 {object}  wrapper.Props{Data=model.Region}
+// @Failure 500 {object}  wrapper.Props{code=int,Data=string,Success=boolean}
+// @Router /lat/{lat}/lon/{lon} [get]
 func (rghandler *ReverseGeocodeHandler) GetState(c echo.Context) error {
 
 	//https://stackoverflow.com/questions/38673673/access-http-response-as-string-in-go
@@ -49,7 +57,7 @@ func (rghandler *ReverseGeocodeHandler) GetState(c echo.Context) error {
 	defer respo.Body.Close()
 
 	if respo.StatusCode != http.StatusOK {
-		errorMessage := fmt.Sprintf("Received %s http status code from locationiq server", respo.Status)
+		errorMessage := fmt.Sprintf("Received %s http status code from locationiq server, check your lat & lon values", respo.Status)
 		return wrapper.Error(http.StatusInternalServerError, errorMessage, c)
 	}
 
@@ -68,20 +76,20 @@ func (rghandler *ReverseGeocodeHandler) GetState(c echo.Context) error {
 	var covstats model.Region
 
 	regionInfo, err := rghandler.regionInfoRepo.FindByRegion(state.String())
-	
+
 	if err != nil {
 		log.Fatal(err)
 		return wrapper.Error(http.StatusInternalServerError, erro.Error(), c)
 	}
-	
+
 	nationInfo, erro := rghandler.regionInfoRepo.FindByRegion("India")
-	
+
 	if erro != nil {
 		log.Fatal(err)
 		return wrapper.Error(http.StatusInternalServerError, erro.Error(), c)
 	}
-	
+
 	covstats = append(covstats, *regionInfo, *nationInfo)
-	
+
 	return wrapper.Data(http.StatusOK, covstats, message, c)
 }

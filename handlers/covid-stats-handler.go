@@ -29,7 +29,13 @@ func NewCovidStatsHandler(e *echo.Echo, repo repository.RegionInfoRepository) {
 	e.GET("/states", cshandler.CovidStats)
 }
 
-// CovidStats - handler method for binding JSON body and scraping for statewise covid data
+// @Summary Get Covid Stats for all States in India from mohfw
+// @Tags root
+// @Accept application/json
+// @Produce json
+// @Success 200 {object}  wrapper.Props{Data=model.Region}
+// @Failure 500 {object}  wrapper.Props{code=int,Data=string,Success=boolean}
+// @Router /states [get]
 func (cshandler *CovidStatsHandler) CovidStats(c echo.Context) error {
 
 	URL := "https://www.mohfw.gov.in/data/datanew.json"
