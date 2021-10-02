@@ -45,7 +45,8 @@ func (r *RegionInfoRepositoryMongo) Delete(rno string) error {
 // FindByRegion is a function to get one user by ID
 func (r *RegionInfoRepositoryMongo) FindByRegion(rname string) (*model.RegionInfo, error) {
 	var regionInfo model.RegionInfo
-	err := r.db.C(r.collection).Find(bson.M{"region_name": rname}).One(&regionInfo)
+	// find the region with latest covid stats
+	err := r.db.C(r.collection).Find(bson.M{"region_name": rname}).Sort("-updated_at").One(&regionInfo)
 	if err != nil {
 		return nil, err
 	}
