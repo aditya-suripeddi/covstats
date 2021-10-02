@@ -48,6 +48,14 @@ State. Built with Golang, Echo framework and MongoDB
 }
 ```
 
+## Future Work / Todos
+
+1. Swagger docs can be improved 
+2. Data validation for /lat/:lat/lon/:lon before calling location1q server
+3. Static assets
+4. Heroku Deploy
+
+
 ## References
 
 1.  https://github.com/sangianpatrick/go-echo-mongo           -  skeleton of project: code structure and mongodb setup
