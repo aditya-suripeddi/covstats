@@ -8,10 +8,9 @@ State. Built with Golang, Echo framework and MongoDB
 
 ## How to run
 
- 1. Install golang, mongodb and postman. Run mongodb  
+ 1. Install golang, mongodb. Run mongodb  
 
-    You can comment middleware portion of code in server.go after this step
-    to skip using postman and using browser to make the API calls
+    Note: middlware is commented out at the moment
 
  2. Go to root directory of project and fill `config/config.json`
 
@@ -19,7 +18,10 @@ State. Built with Golang, Echo framework and MongoDB
  
  4. Run `/path/to/covstats$ go run "path\to\covstats\server.go"` to start the server
  
- 3. Import covstats.postman_collection.json in postman and make calls to server for response.
+ 5. In browser go to `localhost:port/swagger/index.html` to understand the APIs ( alternatively import covstats.postman_collection.json
+     in postman) and to make calls to server for response.
+
+
 
 
 ## Application
