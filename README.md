@@ -56,7 +56,7 @@ State. Built with Golang, Echo framework and MongoDB
 2. Heroku Deploy
 2. Data validation of lat, lon - locationiq server tentatively
 3. Static assets
-4. Heroku Deploy
+4. Heroku Deploy with addons for db along with redis caching layer
 5. User authentication
 
 ## Preview of APIs with Swagger
