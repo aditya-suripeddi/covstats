@@ -9,7 +9,7 @@ import (
 	"github.com/aditya-suripeddi/covstats/repository"
 
 	db "github.com/aditya-suripeddi/covstats/helpers/database"
-	//mdl "github.com/aditya-suripeddi/covstats/middleware"
+	mdl "github.com/aditya-suripeddi/covstats/middleware"
 	_ "github.com/aditya-suripeddi/covstats/docs/swagdocs"
 
 	"github.com/labstack/echo/v4"
@@ -70,8 +70,8 @@ func main() {
 	defer mongodb.Logout()
 
 	e := echo.New()
-	//appMiddleware := mdl.InitAppMiddleware(appName)
-	//e.Use(appMiddleware.CORS)
+	appMiddleware := mdl.InitAppMiddleware(appName)
+	e.Use(appMiddleware.CORS)
 
 	// create repository objects for CRUD
 	urMongo := repository.NewRegionInfoRepositoryMongo(mongodb, appName)

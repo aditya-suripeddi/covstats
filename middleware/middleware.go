@@ -3,9 +3,11 @@ package middleware
 import (
 	"fmt"
 	"net/http"
+	"strings"
+	"time"
 
-    "github.com/aditya-suripeddi/covstats/helpers/wrapper"
-	
+	"github.com/aditya-suripeddi/covstats/helpers/wrapper"
+
 	"github.com/labstack/echo/v4"
 )
 
@@ -17,7 +19,14 @@ type AppMiddleware struct {
 // CORS is a function that will filter the incoming request
 func (am *AppMiddleware) CORS(next echo.HandlerFunc) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		contentType := c.Request().Header.Get("Content-Type")
+
+		if strings.Contains(c.Path(), "swagger") {
+			return next(c)
+		}
+
+		contentType := c.Request().Header.Get("Content-Type") 
+		fmt.Println("localhost:1323", c.Path(), " at ", time.Now())
+
 		c.Response().Header().Set("Server", am.appName)
 		c.Response().Header().Set("Access-Control-Allow-Origin", "*")
 		c.Response().Header().Set("Access-Control-Allow-Methods",
@@ -26,7 +35,9 @@ func (am *AppMiddleware) CORS(next echo.HandlerFunc) echo.HandlerFunc {
 			"Origin, X-Requested-With, Content-Type, Accept")
 
 		c.Response().Header().Set("Accept", "application/json")
-		if contentType != "application/json" {
+		
+		// assumption: GET requests don't have body so skip this check
+		if   c.Request().Method != "GET" && contentType != "application/json" {
 			fmt.Println(contentType)
 			return wrapper.Error(http.StatusNotAcceptable, "request is not acceptable due to policy", c)
 		}
