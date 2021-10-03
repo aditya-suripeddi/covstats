@@ -12,16 +12,18 @@ State. Built with Golang, Echo framework and MongoDB
 
     Note: middlware is commented out at the moment
 
- 2. Go to root directory of project and fill `config/config.json`
+ 2. Clone the project outside of `$GOPATH` directory 
 
- 3. Run `/path/to/covstats$ go mod tidy`
+ 3. Go to root directory of project and make changes to `config/config.json`
+
+ 4. Run `/path/to/covstats$ go mod tidy`
  
- 4. Run `/path/to/covstats$ go run "path/to/covstats/server.go"` to start the server
+ 5. Run `/path/to/covstats$ go run server.go"` to start the server
  
- 5. In browser go to `localhost:1323/swagger/index.html` to understand the APIs ( alternatively import covstats.postman_collection.json
+ 6. In browser go to `localhost:1323/swagger/index.html` to understand the APIs ( alternatively import covstats.postman_collection.json
      in postman) and to make calls to server for response.
 
- 6. From swagger you can test the APIs. Set `lat:16.3` and `lon:80.4` for reverse gecoding API.
+ 7. From swagger you can test the APIs. Set `lat:16.3` and `lon:80.4` for reverse gecoding API use case.
 
 
 
@@ -74,3 +76,4 @@ State. Built with Golang, Echo framework and MongoDB
 5.  https://blog.logrocket.com/making-http-requests-in-go/    -  more info on echo 
 6.  https://www.youtube.com/watch?v=C8LgvuEBraI               -  go quick intro 
 7.  https://github.com/swaggo/swag                            -  swagger api docs with examples
+8.  swag init -g ./server.go --output ./docs/swagdocs         -  command to generate swagger docs
