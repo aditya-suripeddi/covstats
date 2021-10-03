@@ -18,10 +18,10 @@ State. Built with Golang, Echo framework and MongoDB
  
  4. Run `/path/to/covstats$ go run "path\to\covstats\server.go"` to start the server
  
- 5. In browser go to `localhost:port/swagger/index.html` to understand the APIs ( alternatively import covstats.postman_collection.json
+ 5. In browser go to `localhost:1323/swagger/index.html` to understand the APIs ( alternatively import covstats.postman_collection.json
      in postman) and to make calls to server for response.
 
-
+   
 
 
 ## Application
