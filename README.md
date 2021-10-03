@@ -61,7 +61,7 @@ State. Built with Golang, Echo framework and MongoDB
 
 ## Preview of APIs with Swagger
 
-<img src="swagger-preview.png" width=800 />
+<img src="swagger-preview.PNG" width=800 />
 
 ## References
 
