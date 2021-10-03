@@ -39,12 +39,12 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/wrapper.Props"
+                                    "$ref": "#/definitions/wrapper.HttpSuccess"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
-                                        "Data": {
+                                        "data": {
                                             "type": "string"
                                         }
                                     }
@@ -55,8 +55,7 @@
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "type": "object",
-                            "additionalProperties": true
+                            "$ref": "#/definitions/wrapper.HttpFail"
                         }
                     }
                 }
@@ -96,7 +95,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/wrapper.Props"
+                                    "$ref": "#/definitions/wrapper.HttpSuccess"
                                 },
                                 {
                                     "type": "object",
@@ -115,25 +114,7 @@
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/wrapper.Props"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "Data": {
-                                            "type": "string"
-                                        },
-                                        "Success": {
-                                            "type": "boolean"
-                                        },
-                                        "code": {
-                                            "type": "integer"
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/wrapper.HttpFail"
                         }
                     }
                 }
@@ -157,7 +138,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/wrapper.Props"
+                                    "$ref": "#/definitions/wrapper.HttpSuccess"
                                 },
                                 {
                                     "type": "object",
@@ -176,25 +157,7 @@
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/wrapper.Props"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "Data": {
-                                            "type": "string"
-                                        },
-                                        "Success": {
-                                            "type": "boolean"
-                                        },
-                                        "code": {
-                                            "type": "integer"
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/wrapper.HttpFail"
                         }
                     }
                 }
@@ -206,55 +169,88 @@
             "type": "object",
             "properties": {
                 "active": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "11503"
                 },
                 "cured": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "2024645"
                 },
                 "death": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "14176"
                 },
                 "new_active": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "11142"
                 },
                 "new_cured": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "2025805"
                 },
                 "new_death": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "14186"
                 },
                 "new_positive": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "20511233"
                 },
                 "positive": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "2050324"
                 },
                 "region_code": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "28"
                 },
                 "region_name": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Andhra Pradesh"
                 },
                 "rno": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "1"
                 },
                 "updated_at": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "2021-10-03T01:01:13.303+05:30"
                 }
             }
         },
-        "wrapper.Props": {
+        "wrapper.HttpFail": {
             "type": "object",
             "properties": {
                 "code": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 500
                 },
                 "data": {},
                 "message": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Invalid request"
                 },
                 "success": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "example": false
+                }
+            }
+        },
+        "wrapper.HttpSuccess": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "example": 200
+                },
+                "data": {},
+                "message": {
+                    "type": "string",
+                    "example": "Data source is mohfw"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": true
                 }
             }
         }

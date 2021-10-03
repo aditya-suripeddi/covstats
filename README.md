@@ -52,8 +52,8 @@ State. Built with Golang, Echo framework and MongoDB
 
 ## Future Work / Todos
 
-1. Swagger docs can be improved 
-2. Data validation for /lat/:lat/lon/:lon before calling location1q server
+1. Swagger docs can be improved
+2. Data validation for lat, lon can be added
 3. Static assets
 4. Heroku Deploy
 
@@ -61,10 +61,10 @@ State. Built with Golang, Echo framework and MongoDB
 ## References
 
 1.  https://github.com/sangianpatrick/go-echo-mongo           -  skeleton of project: code structure and mongodb setup
-2.  https://www.mohfw.gov.in/data/datanew.json                -  for statewise covid data
-3.  https://betterprogramming.pub/intro-77f65f73f6d3          -  intro to echo and for making client api calls 
-4.  https://blog.logrocket.com/making-http-requests-in-go/    -  more info on echo 
-5.  https://www.youtube.com/watch?v=C8LgvuEBraI               -  go quick intro 
-
-6.  https://gist.github.com/border/3489566 
+2.  https://gist.github.com/border/3489566 
     https://pkg.go.dev/labix.org/v2/mgo#Query.Sort            -  for sorting results based on time
+3.  https://www.mohfw.gov.in/data/datanew.json                -  for statewise covid data
+4.  https://betterprogramming.pub/intro-77f65f73f6d3          -  intro to echo and for making client api calls 
+5.  https://blog.logrocket.com/making-http-requests-in-go/    -  more info on echo 
+6.  https://www.youtube.com/watch?v=C8LgvuEBraI               -  go quick intro 
+7.  https://github.com/swaggo/swag                            -  swagger api docs with examples

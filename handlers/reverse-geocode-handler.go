@@ -33,8 +33,8 @@ func NewReverseGeocodeHandler(e *echo.Echo, repo repository.RegionInfoRepository
 // @Produce json
 // @Param lat path string true "latitude"
 // @Param lon path string true "longitude"
-// @Success 200 {object}  wrapper.Props{Data=model.Region}
-// @Failure 500 {object}  wrapper.Props{code=int,Data=string,Success=boolean}
+// @Success 200 {object}  wrapper.HttpSuccess{Data=model.Region}
+// @Failure 500 {object}  wrapper.HttpFail
 // @Router /lat/{lat}/lon/{lon} [get]
 func (rghandler *ReverseGeocodeHandler) GetState(c echo.Context) error {
 

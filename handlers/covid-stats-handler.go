@@ -15,7 +15,6 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-
 type CovidStatsHandler struct {
 	regionInfoRepo repository.RegionInfoRepository
 }
@@ -33,8 +32,8 @@ func NewCovidStatsHandler(e *echo.Echo, repo repository.RegionInfoRepository) {
 // @Tags root
 // @Accept application/json
 // @Produce json
-// @Success 200 {object}  wrapper.Props{Data=model.Region}
-// @Failure 500 {object}  wrapper.Props{code=int,Data=string,Success=boolean}
+// @Success 200 {object}  wrapper.HttpSuccess{Data=model.Region}
+// @Failure 500 {object}  wrapper.HttpFail
 // @Router /states [get]
 func (cshandler *CovidStatsHandler) CovidStats(c echo.Context) error {
 
@@ -67,7 +66,6 @@ func (cshandler *CovidStatsHandler) CovidStats(c echo.Context) error {
 	json.Unmarshal([]byte(bodyBytes), &state_data)
 	now := time.Now()
 
-	
 	// As per mohfw data set  { "sname" : "" } respresents covid stats of India
 	for _, value := range state_data {
 		if value.Sname == "" {

@@ -3,38 +3,66 @@ definitions:
   model.RegionInfo:
     properties:
       active:
+        example: "11503"
         type: string
       cured:
+        example: "2024645"
         type: string
       death:
+        example: "14176"
         type: string
       new_active:
+        example: "11142"
         type: string
       new_cured:
+        example: "2025805"
         type: string
       new_death:
+        example: "14186"
         type: string
       new_positive:
+        example: "20511233"
         type: string
       positive:
+        example: "2050324"
         type: string
       region_code:
+        example: "28"
         type: string
       region_name:
+        example: Andhra Pradesh
         type: string
       rno:
+        example: "1"
         type: string
       updated_at:
+        example: "2021-10-03T01:01:13.303+05:30"
         type: string
     type: object
-  wrapper.Props:
+  wrapper.HttpFail:
     properties:
       code:
+        example: 500
         type: integer
       data: {}
       message:
+        example: Invalid request
         type: string
       success:
+        example: false
+        type: boolean
+    type: object
+  wrapper.HttpSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data: {}
+      message:
+        example: Data source is mohfw
+        type: string
+      success:
+        example: true
         type: boolean
     type: object
 host: localhost:1323
@@ -62,16 +90,15 @@ paths:
           description: OK
           schema:
             allOf:
-            - $ref: '#/definitions/wrapper.Props'
+            - $ref: '#/definitions/wrapper.HttpSuccess'
             - properties:
-                Data:
+                data:
                   type: string
               type: object
         "500":
           description: Internal Server Error
           schema:
-            additionalProperties: true
-            type: object
+            $ref: '#/definitions/wrapper.HttpFail'
       summary: Check server status
       tags:
       - root
@@ -97,7 +124,7 @@ paths:
           description: OK
           schema:
             allOf:
-            - $ref: '#/definitions/wrapper.Props'
+            - $ref: '#/definitions/wrapper.HttpSuccess'
             - properties:
                 Data:
                   items:
@@ -107,16 +134,7 @@ paths:
         "500":
           description: Internal Server Error
           schema:
-            allOf:
-            - $ref: '#/definitions/wrapper.Props'
-            - properties:
-                Data:
-                  type: string
-                Success:
-                  type: boolean
-                code:
-                  type: integer
-              type: object
+            $ref: '#/definitions/wrapper.HttpFail'
       summary: Get state from lat, lon and send covstats in that state and India
       tags:
       - root
@@ -131,7 +149,7 @@ paths:
           description: OK
           schema:
             allOf:
-            - $ref: '#/definitions/wrapper.Props'
+            - $ref: '#/definitions/wrapper.HttpSuccess'
             - properties:
                 Data:
                   items:
@@ -141,16 +159,7 @@ paths:
         "500":
           description: Internal Server Error
           schema:
-            allOf:
-            - $ref: '#/definitions/wrapper.Props'
-            - properties:
-                Data:
-                  type: string
-                Success:
-                  type: boolean
-                code:
-                  type: integer
-              type: object
+            $ref: '#/definitions/wrapper.HttpFail'
       summary: Get Covid Stats for all States in India from mohfw
       tags:
       - root

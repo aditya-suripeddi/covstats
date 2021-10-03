@@ -11,8 +11,8 @@ import (
 // @Tags root
 // @Accept application/json
 // @Produce json
-// @Success 200 {object}  wrapper.Props{Data=string}
-// @Failure 500 {object}  map[string]interface{}
+// @Success 200 {object}  wrapper.HttpSuccess{data=string}
+// @Failure 500 {object}  wrapper.HttpFail
 // @Router / [get]
 func ServerStatus(c echo.Context) error {
 	return wrapper.Data(http.StatusOK, "Server is up and running", "Server has started", c)
