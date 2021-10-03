@@ -1,0 +1,16 @@
+{
+  "app": {
+    "name": "covstats",
+    "domain": "localhost",
+    "port": "1323",
+    "dev": true
+  },
+  "database": {
+    "mongodb": {
+      "host":"localhost:27017",
+      "user": "",
+      "password": "",
+      "db": "foo"
+    }
+  }
+}
