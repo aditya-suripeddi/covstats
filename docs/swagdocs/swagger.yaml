@@ -46,7 +46,7 @@ definitions:
         type: integer
       data: {}
       message:
-        example: Invalid request
+        example: Internal server error
         type: string
       success:
         example: false

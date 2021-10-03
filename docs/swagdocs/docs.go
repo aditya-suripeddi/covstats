@@ -239,7 +239,7 @@ var doc = `{
                 "data": {},
                 "message": {
                     "type": "string",
-                    "example": "Invalid request"
+                    "example": "Internal server error"
                 },
                 "success": {
                     "type": "boolean",

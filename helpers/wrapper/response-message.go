@@ -14,7 +14,7 @@ type HttpSuccess struct {
 type HttpFail struct {
 	Code    int         `json:"code" example:"500"`
 	Data    interface{} `json:"data" example:""`
-	Message string      `json:"message" example:"Invalid request"`
+	Message string      `json:"message" example:"Internal server error"`
 	Success bool        `json:"success" example:"false"`
 }
 
