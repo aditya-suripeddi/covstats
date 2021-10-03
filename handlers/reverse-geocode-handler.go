@@ -71,6 +71,11 @@ func (rghandler *ReverseGeocodeHandler) GetState(c echo.Context) error {
 	state := gjson.Get(bodyString, "address.state")
 	message := "Reverse geocoding done with https://locationiq.com/"
 
+	if state.Type == gjson.Null {
+		errorMessage := fmt.Sprintf("State not found in locationiq server response, check your lat, lon values: %s", bodyString)
+		return wrapper.Error(http.StatusInternalServerError, errorMessage, c)
+	}
+
 	log.Println(state)
 
 	var covstats model.Region
