@@ -55,11 +55,10 @@ State. Built with Golang, Echo framework and MongoDB
 
 1. Swagger docs can be improved
 2. Unit Tests
-3. Heroku Deploy
-4. Data validation of lat, lon - locationiq server tentatively
-5. Static assets
-6. Heroku Deploy with addons for db along with redis caching layer
-7. User authentication
+3. Data validation of lat, lon - locationiq server tentatively
+4. Static assets
+5. Heroku Deploy with addons for db along with redis caching layer
+6. User authentication
 
 ## Preview of APIs with Swagger
 
