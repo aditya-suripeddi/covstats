@@ -30,7 +30,7 @@ func NewCovidStatsHandler(e *echo.Echo, repo repository.RegionInfoRepository) {
 
 // @Summary Get Covid Stats for all States in India from mohfw
 // @Tags root
-// @Accept application/json
+// @Accept  json
 // @Produce json
 // @Success 200 {object}  wrapper.HttpSuccess{Data=model.Region}
 // @Failure 500 {object}  wrapper.HttpFail

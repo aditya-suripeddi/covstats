@@ -9,7 +9,7 @@ import (
 
 // @Summary Check server status
 // @Tags root
-// @Accept application/json
+// @Accept json
 // @Produce json
 // @Success 200 {object}  wrapper.HttpSuccess{data=string}
 // @Failure 500 {object}  wrapper.HttpFail

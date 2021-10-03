@@ -29,7 +29,7 @@ func NewReverseGeocodeHandler(e *echo.Echo, repo repository.RegionInfoRepository
 
 // @Summary Get state from lat, lon and send covstats in that state and India
 // @Tags root
-// @Accept application/json
+// @Accept json
 // @Produce json
 // @Param lat path string true "latitude"
 // @Param lon path string true "longitude"
