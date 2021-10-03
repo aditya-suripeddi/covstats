@@ -16,12 +16,13 @@ State. Built with Golang, Echo framework and MongoDB
 
  3. Run `/path/to/covstats$ go mod tidy`
  
- 4. Run `/path/to/covstats$ go run "path\to\covstats\server.go"` to start the server
+ 4. Run `/path/to/covstats$ go run "path/to/covstats/server.go"` to start the server
  
  5. In browser go to `localhost:1323/swagger/index.html` to understand the APIs ( alternatively import covstats.postman_collection.json
      in postman) and to make calls to server for response.
 
-   
+ 6. From swagger you can test the APIs. Set `lat:16.3` and `lon:80.4` for reverse gecoding API.
+
 
 
 ## Application
