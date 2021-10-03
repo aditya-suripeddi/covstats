@@ -53,7 +53,7 @@ State. Built with Golang, Echo framework and MongoDB
 
 ## Future Work / Todos
 
-1. Swagger docs can be improved
+1. Swagger docs can have more info
 2. Unit Tests
 3. Data validation of lat, lon - locationiq server tentatively
 4. Static assets
