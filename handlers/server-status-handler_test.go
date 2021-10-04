@@ -21,6 +21,7 @@ func TestServerStatusHandler(t *testing.T) {
 	// Assertions
 	if assert.NoError(t, ServerStatus(c)) {
 		assert.Equal(t, http.StatusOK, rec.Code)
+		t.Log(rec.Body.String())
 		assert.Equal(t, successResponse, rec.Body.String())
 	}
 
