@@ -17,6 +17,8 @@ import (
 	 echoSwagger "github.com/swaggo/echo-swagger"
 )
 
+
+// https://stackoverflow.com/questions/24790175/when-is-the-init-function-run
 // read configs
 func init() {
 	viper.SetConfigFile(`./config/config.json`)
