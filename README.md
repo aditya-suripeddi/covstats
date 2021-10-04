@@ -10,8 +10,6 @@ State. Built with Golang, Echo framework and MongoDB
 
  1. Install golang, mongodb. Run mongodb  
 
-    Note: middlware is commented out at the moment
-
  2. Clone the project outside of `$GOPATH` directory 
 
  3. Go to root directory of project and make changes to `config/config.json`
@@ -21,7 +19,7 @@ State. Built with Golang, Echo framework and MongoDB
  5. Run `/path/to/covstats$ go run server.go"` to start the server
  
  6. In browser go to `localhost:1323/swagger/index.html` to understand the APIs ( alternatively import covstats.postman_collection.json
-     in postman) and to make calls to server for response.
+     in postman) to make calls to server for response.
 
  7. From swagger you can test the APIs. Set `lat:16.3` and `lon:80.4` for reverse gecoding API use case.
 
