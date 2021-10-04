@@ -58,10 +58,10 @@ State. Built with Golang, Echo framework and MongoDB
 
 ## Future Work / Todos
 
-1. Unit Tests
-2. Heroku Deploy with addons for db along with redis caching layer
-3. Validation of lat, lon needs review, handled by locationiq server tentatively
-4. Swagger docs can be packed with more info
+1. Heroku Deploy with addons for db
+2. Unit tests require more cases
+3. Swagger docs can be packed with more info
+4. Validation of lat, lon needs review, handled by locationiq server tentatively
 5. Static assets
 6. User authentication
 
