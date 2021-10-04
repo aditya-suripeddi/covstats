@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"regexp"
 
 	"github.com/aditya-suripeddi/covstats/helpers/wrapper"
 	"github.com/aditya-suripeddi/covstats/model"
@@ -27,6 +28,13 @@ func NewReverseGeocodeHandler(e *echo.Echo, repo repository.RegionInfoRepository
 	e.GET("/lat/:lat/lon/:lon", rghandler.GetState)
 }
 
+func isValid(lat string, lon string) bool {
+	//https://stackoverflow.com/questions/3518504/regular-expression-for-matching-latitude-longitude-coordinates
+	// https://stackoverflow.com/questions/66624011/how-to-validate-an-email-address-in-go
+	regex := regexp.MustCompile(`^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$`)
+	return regex.MatchString(lat) && regex.MatchString(lon)
+}
+
 // @Summary Get state from lat, lon and send covstats in that state and India
 // @Tags root
 // @Accept json
@@ -42,8 +50,15 @@ func (rghandler *ReverseGeocodeHandler) GetState(c echo.Context) error {
 	// the code below is taken from link above
 
 	lat := c.Param("lat")
-	long := c.Param("lon")
-	URL := fmt.Sprintf("https://us1.locationiq.com/v1/reverse.php?key=pk.8b79e5c7f4eb5381aab22c4c26d0e3d3&lat=%s&lon=%s&format=json", lat, long)
+	lon := c.Param("lon")
+
+	//  need to review:  
+	//if !isValid(lat, lon) {
+	// 	errorMessage := fmt.Sprintf("lat %s, lon %s validation failed", lat, lon)
+	// 	return wrapper.Error(http.StatusBadRequest, errorMessage, c)
+	// }
+
+	URL := fmt.Sprintf("https://us1.locationiq.com/v1/reverse.php?key=pk.8b79e5c7f4eb5381aab22c4c26d0e3d3&lat=%s&lon=%s&format=json", lat, lon)
 
 	var client http.Client
 
@@ -58,7 +73,7 @@ func (rghandler *ReverseGeocodeHandler) GetState(c echo.Context) error {
 
 	if respo.StatusCode != http.StatusOK {
 		errorMessage := fmt.Sprintf("Received %s http status code from locationiq server, check your lat & lon values", respo.Status)
-		return wrapper.Error(http.StatusInternalServerError, errorMessage, c)
+		return wrapper.Error(respo.StatusCode, errorMessage, c)
 	}
 
 	bodyBytes, err := ioutil.ReadAll(respo.Body)
