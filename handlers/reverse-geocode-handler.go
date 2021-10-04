@@ -51,8 +51,9 @@ func (rghandler *ReverseGeocodeHandler) GetState(c echo.Context) error {
 
 	lat := c.Param("lat")
 	lon := c.Param("lon")
-
-	//  need to review:  
+    
+	fmt.Println("lat:", lat, "lon:", lon)
+	//  need to review:
 	//if !isValid(lat, lon) {
 	// 	errorMessage := fmt.Sprintf("lat %s, lon %s validation failed", lat, lon)
 	// 	return wrapper.Error(http.StatusBadRequest, errorMessage, c)
@@ -72,7 +73,7 @@ func (rghandler *ReverseGeocodeHandler) GetState(c echo.Context) error {
 	defer respo.Body.Close()
 
 	if respo.StatusCode != http.StatusOK {
-		errorMessage := fmt.Sprintf("Received %s http status code from locationiq server, check your lat & lon values", respo.Status)
+		errorMessage := fmt.Sprintf("Received %s http status code from locationiq server, check your lat and lon values", respo.Status)
 		return wrapper.Error(respo.StatusCode, errorMessage, c)
 	}
 
@@ -87,7 +88,7 @@ func (rghandler *ReverseGeocodeHandler) GetState(c echo.Context) error {
 	message := "Reverse geocoding done with https://locationiq.com/"
 
 	if state.Type == gjson.Null {
-		errorMessage := fmt.Sprintf("State not found in locationiq server response, check your lat, lon values: %s", bodyString)
+		errorMessage := fmt.Sprintf("State not found in locationiq server response, check your lat and lon values: %s", bodyString)
 		return wrapper.Error(http.StatusInternalServerError, errorMessage, c)
 	}
 
