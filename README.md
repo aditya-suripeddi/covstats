@@ -25,6 +25,9 @@ State. Built with Golang, Echo framework and MongoDB
 
  7. From swagger you can test the APIs. Set `lat:16.3` and `lon:80.4` for reverse gecoding API use case.
 
+ 8. If swagger declarative comments are modified, you need to run `path/to/covstats$ swag init -g ./server.go --output ./docs/` 
+
+ 9. To run tests go to handlers folder `path/to/covstats/handlers$ go test -v`
 
 
 ## Application
@@ -76,4 +79,5 @@ State. Built with Golang, Echo framework and MongoDB
 5.  https://blog.logrocket.com/making-http-requests-in-go/    -  more info on echo 
 6.  https://www.youtube.com/watch?v=C8LgvuEBraI               -  go quick intro 
 7.  https://github.com/swaggo/swag                            -  swagger api docs with examples
-8.  swag init -g ./server.go --output ./docs/swagdocs         -  command to generate swagger docs
+10. https://stackoverflow.com/questions/28240489/golang-testing-no-test-files/28240537    - setup for go tests
+9.  https://ieftimov.com/post/testing-in-go-go-test/          -  command to run go tests
