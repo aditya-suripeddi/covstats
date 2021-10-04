@@ -77,5 +77,6 @@ State. Built with Golang, Echo framework and MongoDB
 5.  https://blog.logrocket.com/making-http-requests-in-go/    -  more info on echo 
 6.  https://www.youtube.com/watch?v=C8LgvuEBraI               -  go quick intro 
 7.  https://github.com/swaggo/swag                            -  swagger api docs with examples
+9.  https://echo.labstack.com/guide/testing/                  -  testing apis
 10. https://stackoverflow.com/questions/28240489/golang-testing-no-test-files/28240537    - setup for go tests
-9.  https://ieftimov.com/post/testing-in-go-go-test/          -  command to run go tests
+11.  https://ieftimov.com/post/testing-in-go-go-test/          -  command to run go tests
