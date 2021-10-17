@@ -36,7 +36,8 @@ func (am *AppMiddleware) CORS(next echo.HandlerFunc) echo.HandlerFunc {
 
 		c.Response().Header().Set("Accept", "application/json")
 		
-		// assumption: GET requests don't have body so skip this check
+		//  GET requests don't require body so skip this check
+		// https://stackoverflow.com/questions/978061/http-get-with-request-body
 		if   c.Request().Method != "GET" && contentType != "application/json" {
 			fmt.Println(contentType)
 			return wrapper.Error(http.StatusNotAcceptable, "request is not acceptable due to policy", c)
