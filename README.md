@@ -68,13 +68,13 @@ Built with Golang, Echo framework and MongoDB
 
 ## References
 
-1.  [project skeleton: code structure and mongodb setup](https://github.com/sangianpatrick/go-echo-mongo)
+1.  [Project skeleton: code structure and mongodb setup](https://github.com/sangianpatrick/go-echo-mongo)
 2.  for sorting results based on time: [link1](https://gist.github.com/border/3489566) [link2](https://pkg.go.dev/labix.org/v2/mgo#Query.Sort)
-3.  [statewise covid data](https://www.mohfw.gov.in/data/datanew.json)
-4.  [intro to echo and making client api calls](https://betterprogramming.pub/intro-77f65f73f6d3)
-5.  [more info on echo](https://blog.logrocket.com/making-http-requests-in-go/)
-6.  [go quick intro](https://www.youtube.com/watch?v=C8LgvuEBraI)
-7.  [swagger api docs with examples](https://github.com/swaggo/swag)
-9.  [testing apis](https://echo.labstack.com/guide/testing/)
-10. [setup for go tests](https://stackoverflow.com/questions/28240489/golang-testing-no-test-files/28240537)
-11. [command to run go tests](https://ieftimov.com/post/testing-in-go-go-test/)
+3.  [Statewise covid data](https://www.mohfw.gov.in/data/datanew.json)
+4.  [Intro to echo and making client api calls](https://betterprogramming.pub/intro-77f65f73f6d3)
+5.  [More info on echo](https://blog.logrocket.com/making-http-requests-in-go/)
+6.  [Go quick intro](https://www.youtube.com/watch?v=C8LgvuEBraI)
+7.  [Swagger api docs with examples](https://github.com/swaggo/swag)
+9.  [Testing apis](https://echo.labstack.com/guide/testing/)
+10. [Setup for go tests](https://stackoverflow.com/questions/28240489/golang-testing-no-test-files/28240537)
+11. [Command to run go tests](https://ieftimov.com/post/testing-in-go-go-test/)
